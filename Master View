@@ -1,0 +1,53 @@
+<mvc:View controllerName="nav.Practice.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>prmaster}">
+						<content>
+		<SearchField width="100%" liveChange="onSearch" class="sapUismaLLMargin" />
+			
+			<ScrollContainer
+				height="100%"
+				width="100%"
+				horizontal="true"
+				vertical="true"
+				focusable="true">
+				<List
+					id="ID_LIST_MASTER"
+				
+					headerText=""
+					includeItemInSelection="true"
+					
+					selectionChange="onEmpListPress"
+					
+								
+					items="{
+					path : 'MasterModel>/results',
+					sorter :{
+					path : 'FirstName'
+					}
+				}"	
+					mode="SingleSelectMaster">
+					
+						<StandardListItem
+							title="{MasterModel>Prn}"
+							description="{MasterModel>Inpr}"/>
+					
+					
+				</List>
+			</ScrollContainer>
+			   
+		</content>
+		
+			     <footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton  icon="sap-icon://add-filter"/>
+						<OverflowToolbarButton  icon="sap-icon://sort"/>
+					</OverflowToolbar>
+				</footer>
+			
+				</Page>
+			</pages>
+		</App>
+</mvc:View>
