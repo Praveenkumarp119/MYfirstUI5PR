@@ -1,0 +1,113 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="nav.Practice.controller.Create" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	displayBlock="true" xmlns:f="sap.ui.layout.form"  xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>purreq}" >
+        
+					<content>
+						<Button type="Accept" icon="sap-icon://accept" press="ooEnter"></Button>
+						<Toolbar>
+							<Title text="Item Overview"/>
+							<ToolbarSpacer/>
+							<Button type="Accept" icon="sap-icon://add" press="onAdd"></Button>
+						</Toolbar>
+						<Table id="table1" items="{/results}">
+							<columns>
+								<Column width="8rem">
+									<Label text="{i18n>itemnumber}"/>
+								</Column>
+								<Column width="8rem">
+									<Label text="{i18n>materialno}"/>
+								</Column>
+
+								<Column width="6rem">
+									<Label text="{i18n>plant}"/>
+								</Column>
+								<Column width="6rem">
+									<Label text="Delivery Date"/>
+								
+								</Column>
+								<Column width="6rem">
+									<Label text="{i18n>quantity}"/>
+								</Column>
+								<Column width="6rem">
+									<Label text="{i18n>accasscategory}"/>
+								</Column>
+								<Column width="8rem">
+									<Label text="Action"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text id="item" text="{Ino}"/>
+										<Text id="mno" text="{met}"/>
+										<Text id="plant" enabled="false" text="{plantt}"/> 
+										<Text id="d" enabled="false" text="{date}"/>
+										<Text id="qnt" text="{qty}"/>
+										<Text id="acca" text="{acc}"/>
+										<l:HorizontalLayout>
+											<Button  icon="sap-icon://edit" press="onEdit"/>
+											<Button type="Reject" id="button2" icon="sap-icon://delete" press="onDelete"/>
+											<Button type="Accept" icon="sap-icon://expand" press="onExpand"/>
+										</l:HorizontalLayout>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+            
+            
+						<Panel expandable="true" id="panelreport" expanded="false" headerText="Item" width="auto" class="sapUiResponsiveMargin">
+							<VBox class="sapUiSmallMargin">
+								<l:BlockLayout id="BlockLayout" background="{/selectedBackground}">
+									<l:BlockLayoutRow accentCells="Accent1">
+										<l:BlockLayoutCell id="Accent1" width="2" title="">
+											<f:SimpleForm id="SimpleFormDisplay480_12120Dual" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4"
+												labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4"
+												columnsL="4" columnsM="4" singleContainerFullSize="false">
+											<f:content>
+													<core:Title text="{i18n>quantitiesordate}"/>
+													<Label text="{i18n>quantity}"/>
+													<Input id="qat" enabled="false" value="{accmodel>/qty}"/>
+													<Label text="{i18n>requestdate}"/>
+													<Input id="rdt" enabled="false" value="{accmodel>/date}"/>
+													<core:Title text="{i18n>valutioin}"/>
+													<Label text="{i18n>valuationpriceorqty}" />
+													<Input id="ame" enabled="false" width="100%" value="" />
+													<Input enabled="false" width="30%" value="{accmodel>/qty}" />
+													<Label text="{i18n>totalprice}"/>
+													<Input id="to" enabled="false" value=""/>
+													<core:Title text="Account Assignment"/>
+													<Label text="{i18n>accasscategory}t"/>
+													<Input id="accass" enabled="false" value="{accmodel>/acc}"/>
+													<Label text="{i18n>costcentre}"/>
+													<Input id="costc" showValueHelp="true" valueHelpRequest="costValueHelp" editable="true" valueHelpOnly="true" value=""/>
+													<Label text="{i18n>glaccout}"/>
+													<Input id="gl" showValueHelp="true" valueHelpRequest="glaccValueHelp" value=""/>
+													<core:Title text="{i18>approvalorstatus}"/>
+													<Label text="{i18n>approver}"/>
+													<Input id="names" placeholder="Approver Id" value=""/>
+													<Label text="{i18n>prstatus}"/>
+													<Input id="rnoo" enabled="false" value=""/>
+												</f:content>
+											</f:SimpleForm>
+										</l:BlockLayoutCell>
+									</l:BlockLayoutRow>
+								</l:BlockLayout>
+							</VBox>
+						</Panel>
+					</content>
+					
+					<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+							
+					        <Button type="Reject" text="Back" press="onBack"/>
+					</OverflowToolbar>
+				</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
